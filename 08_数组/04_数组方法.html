@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组方法</title>
+    <script>
+        let arr=[1,2,3,4,5,6]
+        let arr1=[7,8,9]
+
+        console.log(Array.isArray(["Monica","Kalen"])) //判断是否是数组
+        console.log(arr.at(-1)) //取倒数第一个元素
+
+        let arr2 = arr.concat(arr1,[10,11,12]) //连接数组 不会影响原数组 返回一个新数组
+        console.log(arr2);
+        
+        let actor = ["Frank","Carl","Debbie","Carl","Miki"]
+        console.log(actor.indexOf("Carl")) //获取元素在数组第一次出现的位置 找不到返回-1
+        console.log(actor.lastIndexOf("Carl")) //获取元素在数组最后一次出现的位置
+
+        console.log(actor.join("*"))//将数组中的元素拼成一个字符串 *作为链接符
+        let act = actor.slice(1,3) //切片 从索引1取到2 (包括起始 不包括结束) -1表示倒数第一个
+        console.log(act)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            对象中的属性可变 但对象不可变
+        */
+        let obj1 = {}
+        obj1.name = "猪八戒"
+        let obj2 = obj1    //同一个地址
+        obj1.name = "猪八" //修改对象的属性 会一起修改
+        console.log(obj1)
+        console.log(obj2)
+        obj2 ={}//这个obj2对象变量指向新的地址 和obj1无关了
+        obj2.name = "孙悟空"//不会一起修改
+        console.log(obj1)
+        console.log(obj2)
+
+
+        /* 故此,通常开发中用const声明对象,禁止对象的变量被重新赋值,对对象的属性没有影响 */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            Math
+                Math是一个工具类，提供有关数学的方法
+                常量
+                    ·Math.PI圆周率
+                方法
+                    ·Math.abs()取一个数的绝对值
+                    ·Math.min(x,y,z)求多个值中的最小值
+                    ·Math.max(x,y,z)求多个值中的最大值
+                    ·Math.pow(x,y)求x的y次幂
+                    ·Math.sqrt(x)求x的根号（平方根）
+
+                    ·Math.floor()向下取整
+                    ·Math.ceil()向上取整
+                    ·Math.round()四舍五入取整
+                    ·Math.trunc()直接去除小数位取整
+
+                    ·Math.random()随机生成0-1之间的伪随机数      、
+                        要生成0-x之间的数 Math.round(Math.random())
+                        要生成x-y之间的数 Math.round(Math.random()*(y-x)+x)
+        */
+       for(let i =0 ;i<50;i++){
+            //生成0-5之间的数
+            let result = Math.round(Math.random()*5)
+            console.log(result);
+            
+       }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

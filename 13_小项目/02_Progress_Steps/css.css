@@ -1,0 +1,98 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    box-sizing: border-box;
+    background-color: rgb(246, 247, 251);
+}
+
+.container {
+    /* 居中 */
+    width: fit-content;
+    height: 10vh;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: -15vh;
+    display: flex;
+}
+
+.container .box {
+    display: flex;
+    align-items: center;
+}
+
+.container .box .circle {
+    background-color: white;
+    border: rgb(224, 224, 224) solid 3px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 25px;
+    color: rgb(153, 153, 153);
+    transition: border 300ms 100ms;
+}
+
+.container .box .line {
+    height: 4px;
+    width: 60px;
+    background-color: rgb(224, 224, 224);
+    transition: background-color 350ms;
+}
+
+/* 当前显示的进度条 */
+.container .active .circle {
+    border: solid 3px rgb(52, 152, 219);
+}
+
+.container .active .line {
+    background-color: rgb(52, 152, 219);
+}
+
+/* 按钮 */
+.btn {
+    position: absolute;
+    width: 300px;
+    height: 60px;
+    left: 0;
+    right: 0;
+    margin: 50px auto;
+    text-align: center;
+    line-height: 60px;
+}
+
+.btn .btn01,
+.btn .btn02 {
+    font-size: 14px;
+    cursor: pointer;
+    color: white;
+    width: 70px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    margin: 0 10px;
+}
+
+.btn .fail {
+    cursor: not-allowed;
+    background-color: rgb(224, 224, 224);
+}
+
+.btn .success {
+    background-color: rgb(52, 152, 219);
+}
+
+.btn .shrink {
+    /* 按下时变小 */
+    font-size: 14px;
+    transform: scale(0.95);
+}

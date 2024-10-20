@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            const btn01 = document.getElementById("btn01")
+            const btn02 = document.getElementById("btn02")
+            const btn03 = document.getElementById("btn03")
+            const list = document.getElementById("list")
+            const swk = document.getElementById("swk")
+            //点击按钮添加元素
+            btn01.onclick=function(){
+                const li = document.createElement("li")
+                li.id="sht"
+                li.textContent="沙和尚"
+                //向元素添加子节点 ： 只能加在最后 
+                //list.appendChild(li)
+                //向元素添加节点 ： 可以指定位置
+                list.insertAdjacentElement("afterbegin",li)
+                //向元素添加节点，不用创建，可以直接向网页中添加
+                list.insertAdjacentHTML("beforeend","<li id='bgj'>白骨精</li>")
+            }
+            //点击按钮替换元素
+            btn02.onclick = function(){
+                const li = document.createElement("li")
+                li.id = "zzj"
+                li.textContent="蜘蛛精"
+                swk.replaceWith(li)
+            }
+            //点击按钮删除元素
+            btn03.onclick = function(){
+                swk.remove()
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn01">添加按钮</button>
+    <button id="btn02">替换按钮</button>
+    <button id="btn03">删除按钮</button>
+    <hr>
+    <ul id = "list">
+        <li id="ts">唐僧</li>
+        <li id="zbj">猪八戒</li>
+        <li id="swk">孙悟空</li>
+    </ul>
+</body>
+</html>

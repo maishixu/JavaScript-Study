@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>提升</title>
+    <script>
+     /* 
+        var提升
+        使用var声明的变量,在所有的代码执行前先声明(没赋值!!)
+            -可以在变量声明前访问,但是undefined
+            -var没有块作用域,但有函数作用域!!
+
+        函数的提升
+        函数声明的函数,在所有的代码执行前被创建,会赋值
+            -也可以在函数创建前调用
+
+        let声明的变量其实也会提升,但不能在初始化(赋值)之前访问
+
+        为什么要提升?
+            方便更合理分配内存,所以要执行前先将变量,函数等需要的内存空间预留出来,防止执行的时候多次重新分配内存,降低执行效率
+        
+        注:变量和函数的提升同样适用于函数作用域
+      */ 
+     
+     document.write(a)
+     var a = 10 //window.a = 10
+
+    fn()
+    function fn(){
+        alert("我是fn")
+    }
+
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

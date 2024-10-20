@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>运算符</title>
+    <script>
+        /*
+         多一个或多个数进行运算 
+        */
+       let a=10/3
+       //10/0 = Infinity
+       console.log(a);
+       console.log(10**2)//幂运算
+       console.log(9**.5)//开方
+       console.log(10%3)//模运算
+
+       /* JS是弱类型语言，当运算时会通过自动类型转换来完成运算
+          算术运算时，除了字符串加法，操作数为非数值时，自动转化为数值
+          
+          字符串加法（其中有一个操作数是字符串，做拼串操作）
+       */
+       a= 10 - '5'
+       console.log(a)
+       a= 10 + '5'//字符串"105"  10做隐式类型转换
+       console.log(typeof a,a)
+       a=true
+       a=true + '' //a隐式转为字符串"true"
+       console.log(typeof a,a)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

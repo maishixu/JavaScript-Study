@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100以内3的倍数及总和</title>
+    <script>
+        let sum = 0
+        for(let a = 1;a <= 100;a++){
+            if(a % 3 === 0){
+                console.log(a)
+                sum += a
+            }else{
+                continue
+            }
+        }
+        alert( `100以内3的倍数总和为${sum}`)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

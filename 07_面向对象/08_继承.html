@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>继承</title>
+    <script>
+        /* 
+            继承
+                -通过extends关键来完成继承
+                -相当于复制了父亲的代码
+                -在子类中,可以通过创建同名方法来重写父类的方法
+                    -重写构造方法时,第一句super(传给父类的参数)
+
+            OCP 开闭原则 - 对修改关闭 对扩展开开放
+
+            总结:
+                封装-安全性
+                多态-扩展性
+                继承-灵活性
+        */
+       class Animal{
+            constructor(name){
+                this.name = name
+            }
+            SayHi(){
+                console.log("hi");    
+            }
+       }
+       class Dog extends Animal{
+            //重写构造函数时,第一句代码super()
+            constructor(name,age){
+                super(name) //调用父类的构造函数,传name给父类的构造函数
+                this.age=age
+            }
+
+            SayHi(){
+                        console.log("汪汪汪");
+                        super.SayHi() //通过super调用父类的方法    
+                }
+       }
+       class Cat extends Animal{
+            SayHi(){
+                        console.log("喵喵喵");    
+                    }
+       }
+       class Duck extends Animal{
+            SayHi(){
+                        console.log("嘎嘎嘎");    
+                    }
+       }
+       class Goat extends Animal{
+            SayHi(){
+                        console.log("咩咩咩");    
+                    }
+       }
+       dog = new Dog("dog",10)
+       cat = new Cat("cat")
+       console.log(dog)
+       dog.SayHi()
+       console.log(cat)
+       cat.SayHi()
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

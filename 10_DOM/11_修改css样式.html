@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 用js修改内联样式 -->
+    <style>
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <hr>
+    <div class="box1"></div>
+    <script>
+        //获取按钮
+        const btn = document.getElementById("btn")
+        //获取盒子
+        const box1 = document.querySelector(".box1")
+        btn.onclick=function(){
+            
+            //修改样式的方式：元素.style.样式名 = "样式值"
+            box1.style.width = "200px"
+            box1.style.height = "200px"
+            //如果样式名有减号则用驼峰命名法
+            box1.style.backgroundColor = "yellow"
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        数据记录
+            获取蛇容器 蛇身体 蛇头
+        知识点
+            -键盘事件只能绑定给"可以获取焦点的元素"或者"document"
+            keydown 按下键盘触发事件
+            keyup 松开键盘触发事件
+            event.key 获取点击的键盘信息
+
+        */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #main{
+            height: 420px;
+            width: 360px;
+            border: 10px #000 solid;
+            border-radius: 20px;
+            background-color: #b7d4a8;
+            margin: 50px auto;
+        }
+        /* 舞台 */
+        #stage{
+            width: 304px;
+            height: 304px;
+            border: 2px solid #000;
+            margin: 20px auto;
+            position: relative;
+        }
+        /* 蛇 */
+        #snake>div{
+            width: 10px;
+            height: 10px;
+            background-color: #000;
+            position: absolute;
+            border: 1px solid #b7d4a8;
+        }
+        /* 食物 */
+        #food{
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            top:100px;
+            left: 150px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        #food>div{
+            width: 5px;
+            height: 5px;
+            background-color: #000;
+            transform: rotate(45deg);
+        }
+        /* 信息 */
+        #info{
+            width: 304px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: bold;
+            font-family: courier;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="stage">
+            <div id="snake">
+                <div></div>
+            </div>
+            <div id="food">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div id="info">
+            <div >SCORE:<span id="score">0</span></div>
+            <div >LEVEL:<span id="level">0</span></div>
+        </div>
+    </div>
+    <!-- 脚本 -->
+    <script>
+        //获取蛇容器
+        const snake = document.getElementById("snake")
+        //获取蛇身体
+        const snakes = snake.getElementsByTagName("div") //类数组
+        //获取食物
+        const food = document.getElementById("food")
+        //获取分数
+        const score = document.getElementById("score")
+        //获取等级
+        const level = document.getElementById("level")
+        /* 每次游戏开始前食物随机分布 ... 算了！防止一开始吃到食物从而误判吃到自己*/
+        // foodChange()
+        /* -----控制蛇移动----- */
+        //按键的可取值
+        const keyArr = ["ArrowUp","ArrowDown","ArrowRight","ArrowLeft", "w","s","d","a"]
+        //相反方向按键
+        const rekey = {
+            "ArrowUp" : ["ArrowDown","s"],
+            "ArrowDown" : ["ArrowUp","w"],
+            "ArrowLeft" : ["ArrowRight","d"],
+            "ArrowRight" : ["ArrowLeft","a"],
+            "w" : ["ArrowDown","s"],
+            "s" : ["ArrowUp","w"],
+            "a" : ["ArrowRight","d"],
+            "d" : ["ArrowLeft","a"],
+        }
+        //获取键盘方向
+        let dir
+        //按键是否可用
+        let keyActive = true
+        //初试分数
+        let scoreNow =0
+        //初始等级
+        let levelNow =0
+        //设置方向
+        document.addEventListener("keydown",(event)=>{
+            if(keyActive===true && keyArr.includes(event.key) && snakes.length<2){
+                dir = event.key
+                //等待蛇移动才可用按键
+                keyActive = false
+            }
+            //当蛇身大于2时，不能掉头
+            else if(keyActive===true&&keyArr.includes(event.key) && rekey[dir].includes(event.key)===false){
+                dir = event.key
+                keyActive = false
+            }
+        })
+        //监测蛇移动方向和速度
+        setTimeout(function move(){
+            //获取蛇头部
+            const head = snakes[0]
+            let x = head.offsetLeft
+            let y = head.offsetTop
+            //计算头部下一次的位置
+            switch(dir){
+                case "ArrowUp":
+                    y-=10
+                    break
+                case "w":
+                    y-=10
+                    break
+                case "ArrowDown":
+                    y+=10
+                    break
+                case "s":
+                    y+=10
+                    break
+                case "ArrowRight":
+                    x+=10
+                    break
+                case "d":
+                    x+=10
+                    break
+                case "ArrowLeft":
+                    x-=10
+                    break
+                case "a":
+                    x-=10
+                    break
+            }
+            /* 蛇吃到食物发生的事件 */
+            
+            if(head.offsetTop===food.offsetTop && head.offsetLeft===food.offsetLeft){
+                //1.随机生成食物
+                foodChange()
+                //2.增加蛇的身体
+                snake.insertAdjacentHTML("beforeend","<div></div>")
+                //3.分数增加
+                score.textContent = ++scoreNow
+                //4.等级变化
+                if(scoreNow>0 && scoreNow%10===0 &&levelNow < 13){
+                    level.textContent = ++levelNow
+                }
+            }
+            /* 判断游戏结束 */
+            // 1.撞墙
+            if(x<0||x>290||y<0||y>290){
+                alert(`撞墙了！游戏结束。分数:${scoreNow}`)
+                return
+            }
+            // 2.吃到自身
+            for(let i = 0;i<snakes.length-1;i++){ //蛇只有一截时，不判断，且头和尾相等时不判断
+                if(x===snakes[i].offsetLeft && y===snakes[i].offsetTop){
+                    alert(`吃到自己了！游戏结束。分数:${scoreNow}`)
+                    return
+                }
+            }
+            //移动：蛇尾-代替蛇头的位置
+            const tail = snakes[snakes.length-1]
+            tail.style.left = x + "px"
+            tail.style.top = y + "px"
+            snake.insertAdjacentElement("afterbegin",tail)//这里由于tail是引用，所以修改位置也会对实际元素有影响
+            //蛇移动了才重新设置按键为可用
+            keyActive = true
+            setTimeout(move,300-levelNow*20)
+        },300)
+
+        /* 随机生成食物 */
+        function foodChange(){
+            const x = Math.floor(Math.random()*30)*10
+            const y = Math.floor(Math.random()*30)*10
+            food.style.left = x + "px"
+            food.style.top = y + "px"
+        }
+
+    </script>
+</body>
+</html>

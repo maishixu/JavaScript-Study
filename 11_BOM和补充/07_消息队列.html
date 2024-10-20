@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            消息队列：
+                -先进先出
+                -消息队列存将要执行的函数（事件）
+                -当栈中有其他函数时，消息队列先等待
+                -当栈中的所有函数都执行完退出后，消息队列中的函数（事件）会依次入栈执行
+        */
+    //    console.time();
+    //    setTimeout(function(){
+    //         console.timeEnd()
+    //         console.log("函数执行了")
+    //    },3000) //指的是3s后进入消息队列
+       //但是
+       //使程序暂停6s，那么栈中会一直有函数占用，即使上面的函数进入消息队列也不会立即执行
+    //    const begin = Date.now()
+    //    while(Date.now()-begin<6000){}
+
+       //从上述例子中看出，若使用setInterval(),如果栈中有函数一直在执行，那么即使新的事件进入消息队列了也会等着，会使得每次执行的间隔不一致
+       //解决方法，使用递归setTimeout
+       console.time("间隔");
+       setTimeout(function fn(){
+            console.timeEnd("间隔");
+            alert("函数执行了")
+            console.time("间隔");
+            setTimeout(fn,3000)
+       },3000)
+    </script>
+</body>
+</html>

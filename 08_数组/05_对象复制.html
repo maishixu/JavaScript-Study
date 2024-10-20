@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const Shameless = ["Fiono","Mandy","Shile","Kev"]
+        const Sh = Shameless  //"引用"指向的是同一个对象 不是复制 修改Sh则Shameless也会改变
+
+        const Shnew = Shameless.slice() //真正的复制，Shnew是新的数组对象，和原数组没关系了
+        const Shsome =[...Shameless]//浅复制
+
+        //展开运算符 ...
+        function sum(a,b,c,d){
+            return a+b+c+d
+        }
+        const a =[10,20,30,40]
+        let r = sum(...a)
+        console.log(r)
+        //assign() 对象的浅 复制
+        const obj = {name :"mason" ,age :20}
+        let obj2 ={}
+        const obj1 =Object.assign(obj)
+        console.log(obj1)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

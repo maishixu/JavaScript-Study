@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可变参数</title>
+    <script>
+        function fn(){
+            /* 
+                隐含参数argument
+                    -是一个类数组对象
+                    -用来存储用户传入的实参
+                    -可以通过for循环遍历，但不能调用数组方法
+                    -箭头函数中没有arguments
+            */
+           
+            console.log(arguments);
+            console.log(arguments.length)
+            //累加传入的值
+            let result = 0
+            for(let num of arguments){
+                result += num
+            }
+            return result
+        }
+        
+        console.log(fn(1,2,3,4,5))
+
+        /* 可变参数 */
+        function fn2(...args){
+            //传的参数都传到args的数组
+            return args.reduce((a,b)=>a+b,0) //返回可变参数数组的
+        }
+        console.log(fn2(1,2,3,4,5))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

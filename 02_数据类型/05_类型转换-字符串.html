@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类型转换</title>
+    <script>
+        /* 
+            其他类型转换成字符串 根据原来的类型值->创建一个新的类型值，而不是替换
+            a.toString()
+            string(a)   更灵活
+        */
+        let a=10
+        a=true
+        a=11n
+        // a=undefined
+        // a=null
+        //这两个没有toString 所以调用时会报错
+        console.log(typeof a,a)
+
+        a=a.toString()//调用a的toString方法 "10"
+        console.log(typeof a,a)
+        /* --------------------------------- */ 
+        let b=20
+        b=undefined
+        b=null
+        console.log(typeof b,b)
+        //对于拥有toString()方法的值调用String方法时，实际上是在调用toString方法
+        //而undefined 和 null 直接准换成字符串
+        b=String(b)//调用String()函数 "20"
+        console.log(typeof b,b)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

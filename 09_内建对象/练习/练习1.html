@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式-手机号</title>
+    <script>
+        /*
+            取出字符串中的手机号码
+            第一位 1
+            第二位 3-9
+            第三位往后 任意数字9个
+        */
+        let str = "hib18876997674jvguvuvf18789520048guffcae13647524711bhvggvc"
+        let str1 = "hib18876997674jvguvuvf18789520048guffcae13647524711bhvggvc"
+        let re = /1[3-9]\d{9}/g //输出手机号
+        let re1 = /(1[3-9]\d)\d{4}(\d{4})/g //输出198****0089
+        let re2 = /^1[3-9]\d{9}$/ //判断是否是手机号
+        let result = re.exec(str)
+        while(result){
+            console.log(result[0])
+            result = re.exec(str)
+        }
+        let result1 = re1.exec(str1)
+        while(result1){
+            console.log(result1[1]+"****"+result1[2])
+            result1 = re1.exec(str1)
+        }
+        console.log(re2.test(19827889900));
+        console.log(re2.test(1982788990));
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

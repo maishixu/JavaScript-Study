@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <script>
+        window.onload=function(){
+            const CheckedAll= document.getElementById("check-all")
+            const options = document.getElementsByName("hobby")
+            const all = document.getElementById("all")
+            const no = document.getElementById("no")
+            const reverse = document.getElementById("reverse")
+            const submit = document.getElementById("submit")
+            /* 全选功能 */
+            all.onclick=function(){
+                for(let va of options){
+                    va.checked=true
+                }
+                CheckedAll.checked=true
+            }
+            /* 全不选功能 */
+            no.onclick=function(){
+                for(let va of options){
+                    va.checked=false
+                }
+                CheckedAll.checked=false
+            }
+            /* 反选功能 */
+            reverse.onclick=function(){
+                for(let va of options){
+                    va.checked=!va.checked
+                    const numbers = document.querySelectorAll("[name=hobby]:checked")
+                    if(numbers.length===options.length){
+                        CheckedAll.checked=true
+                    }else{
+                        CheckedAll.checked=false
+                    }
+                }
+            }
+            /* 提交功能 */
+            submit.onclick = function() {
+                for(let va of options){
+                    if(va.checked===true){
+                        alert(va.value)
+                    }
+                }
+            }
+            /* 同步 */
+            //在事件的响应函数中，响应函数绑定给谁，this就是谁（除了箭头函数）
+            CheckedAll.onclick=function(){
+                for(let va of options){
+                    va.checked = CheckedAll.checked
+                }
+            }
+            for(let va of options){
+                va.onclick = function(){
+                    const numbers = document.querySelectorAll("[name=hobby]:checked")//属性选择支持多个复选框
+                    if(numbers.length===options.length){
+                        CheckedAll.checked=true
+                    }else{
+                        CheckedAll.checked=false
+                    }
+                }
+            }
+
+        }
+    </script>
+<body>
+    <div>
+        请选择你的爱好：
+        <input type="checkbox" value="全选" id="check-all">全选
+    </div>
+    <div>
+        <input type="checkbox" value="乒乓球" name="hobby">乒乓球
+        <input type="checkbox" value="篮球" name="hobby">篮球
+        <input type="checkbox" value="羽毛球" name="hobby">羽毛球
+        <input type="checkbox" value="足球" name="hobby">足球
+    </div>
+    <div>
+        <button type="button" id="all">全选</button>
+        <button type="button" id="no">全不选</button>
+        <button type="button" id="reverse">反选</button>
+        <button type="button" id="submit">提交</button>
+    </div>
+</body>
+</html>

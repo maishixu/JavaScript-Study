@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">点我一下</button>
+    <script>
+        /* 
+            DOM相当于JS和网页的接口，将JS和网页联系起来
+                -要使用DOM来操纵网页，那必须得有一个对象
+                    ·这个对象就是document，浏览器提供，代表整个网页
+        */
+
+        //通过id获取btn对象
+        const btn = document.getElementById("btn")
+        //修改btn对象中的文字
+        btn.innerText = "CLICK ME"
+    </script>
+</body>
+</html>

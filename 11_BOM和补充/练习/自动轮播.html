@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动轮播</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .outer{
+            /* background-color: rgb(184, 234, 234); */
+            width: 300px;
+            margin: 0 auto;
+            margin-top: 50px;
+            position: relative;
+        }
+        ul{
+            list-style: none;
+            width: 300px;
+            height: 230px;
+            
+        }
+        ul li{
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        /* 图片 */
+        ul img{
+            width: 300px;
+            height: 230px;
+            vertical-align: top;
+        }
+        ul .current{
+            z-index: 1;
+            opacity: 1;
+        }
+        /* 前后箭头 */
+        .outer .prev-next a{
+            line-height: 30px;
+            background-color: #cbc9c9;
+            height: 30px;
+            font-size: 25px;
+            color: #3b3b3b;
+            z-index: 2;
+            text-decoration: none;
+            position: absolute;
+            top:0;
+            bottom: 0;
+            margin: auto 0;
+            opacity: 0.3;
+            text-align: center;
+        }
+        .outer .prev-next .next{
+            right: 0;
+        }
+        .outer .prev-next a:hover{
+            opacity: 1;
+        }
+        /* 导航点 */
+        .dot{
+            z-index: 3;
+            display: flex;
+            /* width: 100px;
+            height: 20px;
+            background-color: aqua; */
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            justify-content: center;
+            bottom: 5px;
+        }
+        .outer .dot .point{
+            cursor: pointer;
+            margin: 3px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: beige;
+            opacity: .5;
+        }
+        .dot .point:hover{
+            opacity: 1;
+        }
+        .outer .dot .active{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <ul class="img-list">
+            <li class="current">
+                <a href="#">
+                    <img src="../images/image1.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../images/image2.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../images/image3.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../images/image4.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../images/image5.jpg" alt="">
+                </a>
+            </li>
+        </ul>
+        <div class="prev-next">
+            <a href="JavaScript:;" class="prev"><</a>
+            <a href="JavaScript:;" class="next">></a>
+        </div>
+        <div class="dot">
+            <div class="point active"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+        </div>
+    </div>
+
+    <script>
+        //获取左箭头
+        const prevv = document.getElementsByClassName("prev")[0]
+        //获取右箭头
+        const nextt = document.getElementsByClassName("next")[0]
+        //获取图片容器
+        const outer = document.getElementsByClassName("outer")[0]
+        //获取导航小点-返回数组
+        const dots = Array.from(document.querySelectorAll(".dot .point"))
+        /* 点击小点切换 */
+         document.addEventListener("click",(event)=>{
+            const index = dots.indexOf(event.target)
+            if(index !==-1){
+                //切换图片
+                changeImg(index)
+                //切换导航点
+                const currentActive = document.querySelector(".active")
+                currentActive.classList.remove("active")
+                event.target.classList.add("active")
+            }
+            })
+        /* 自动切换图片 */
+        /* 为了防止timer被外界错误访问，所以要使用闭包 */
+        const autoChange = (function(){
+            let timer = null
+            return ()=>{
+                    if(timer === null){
+                        timer = setTimeout(function auto(){
+                        changeImg("next")
+                        timer = setTimeout(auto,3000)
+                    }, 3000);
+                    }else{
+                        clearTimeout(timer)
+                        timer=null
+                    }
+                }
+        })()
+        autoChange()
+
+        //鼠标移进去时停止切换
+        outer.onmouseenter = function(){
+            autoChange()
+        }
+        //鼠标移出来自动切换
+        outer.onmouseleave = function(){
+            autoChange()
+        }
+        //点击上一张
+        prevv.onclick  =function(){
+            changeImg("prev")
+        }
+        //点击下一张
+        nextt.onclick = function(){
+            changeImg("next")
+        }
+        function changeImg(dir){
+            //当前的图片元素
+            const current = document.querySelector(".current")
+            //当前图片索引
+            const lis = document.querySelectorAll(".outer ul li");
+            let index = Array.from(lis).indexOf(current);
+            //获取当前显示的点    
+            const currentActive = document.querySelector(".active")
+            //下一个图片元素
+            let next
+            if(dir === "next"){
+                next = current.nextElementSibling||document.getElementsByTagName("li")[0]
+                index = (index + 1) % lis.length
+                //切换导航小点
+                currentActive.classList.remove("active")
+                dots[index].classList.add("active")
+            }else if(dir === "prev"){
+                next = current.previousElementSibling||document.querySelector(".img-list li:last-child")
+                index = (index - 1 + lis.length) % lis.length;
+                //切换导航小点
+                currentActive.classList.remove("active")
+                dots[index].classList.add("active")
+            }else if(typeof dir ==="number"){
+                next = document.querySelectorAll(".outer ul li")[dir]
+            }
+            //替换
+            current.classList.remove("current")
+            next.classList.add("current")
+
+        }
+    </script>
+</body>
+</html>

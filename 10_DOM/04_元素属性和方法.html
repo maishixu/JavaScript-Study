@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box1">this is a box
+        <span class="s1">this is a span</span>
+        <span class="s1">this is a span</span>
+        <span class="s1">this is a span</span>
+    </div>
+        <span class="s1">this is a span</span>
+    <script>
+        /* 
+            div的原型链
+                -HTMLDivElement->HTMLDocument->Element->Node->EventTarget->Object.__proto__->null
+            通过元素节点对象获取其他节点的方法
+        */
+       const box1 =document.getElementById("box1")
+       const spans = box1.getElementsByClassName("s1") //在box1内部获取s1元素，外边的不算
+       const result = box1.childNodes //获取元素的子节点(空白的也算) so 不实用 7个
+       result = box1.children //获取当前元素的子元素 3个
+       result = box1.firstchild //获取当前元素的第一个子节点（不好用）
+       result = box1.firstElementChild //获取当前元素的第一个子元素
+
+       result = box1.firstElementChild //获取当前元素的第一个子元素
+       result = box1.nextElementSibling //获取当前元素后一个兄弟元素
+       result = box1.previousElementSibling //获取当前元素前一个兄弟元素
+       result = box1.parentElement //获取当前元素的父元素 *
+       result = box1.parentNode //获取当前元素的父结点 *document是文档节点 不是元素
+       result = box1.tagName //获取当前元素的标签名
+
+    </script>
+</body>
+</html>

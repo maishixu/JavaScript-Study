@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        instanceof 用来检查一个对象是否是一个类的实例
+            -检查的是对象的原型链上是否有该类实例
+        */
+        class Person{
+            name = "Carl"
+            age = 18
+            SayHi(){
+                console.log('hi',this.name);
+            }
+        }
+        class Human extends Person{}
+        // Human -> Person -> Object ->Object原型
+        const p = new Human()
+        console.log(p instanceof Human) //true
+        console.log(p instanceof Person) //true
+        console.log(p instanceof Object) //true
+
+        /* 
+        in 检查属性是否在对象自身or原型中
+        */
+       console.log("name" in p); //true
+       console.log("SayHi" in p);//true
+       /* 
+       hasOwnProperty检查对象自身中是否含有某个属性
+       */
+       console.log(p.hasOwnProperty("name")); //true
+       console.log(p.hasOwnProperty("SayHi"));//false
+       /* 
+       hasOwn检查对象自身中是否含有某个属性（新方法） 静态方法
+       */
+      console.log(Object.hasOwn(p,"name")) //true
+      console.log(Object.hasOwn(p,"sayHi"))//false
+
+       const obj = new Object()
+       console.log(obj.__proto__)
+       console.log(Object.prototype)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

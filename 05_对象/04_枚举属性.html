@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>枚举</title>
+    <script>
+        /* 
+        枚举属性:提取对象中的所有属性
+        for(let a in obj) 遍历对象中的所有属性
+        */
+       let obj={
+        name:"孙悟空",
+        age:19,
+        address:"花果山",
+        [Symbol()]:"测试" //不能枚举的属性
+       }
+       for(let propName in obj){
+        console.log(propName,obj[propName])
+       }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

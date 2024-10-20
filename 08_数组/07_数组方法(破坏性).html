@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            push():末尾添加元素 返回长度
+            pop():删除并返回数组最后一个元素
+            unshift():开头添加元素 返回长度
+            shift():删除并返回开头第一个元素
+
+            splice -删除 替换 添加元素
+                ("删除的始位置","删除的数量","要替换的元素(可多个)") 从原数组中删除，返回删除的元素
+            reverse() -反转数组
+        */
+       
+        const sle = ["Fiono","Mandy","Shile","Kev"]
+        let result = sle.push("添加1") //添加 返回长度  result = 5
+        
+        sle.splice(2,0,"Mike","Jony") //在索引为2的位置后插入元素
+        console.log(sle);
+
+        sle.reverse()
+        console.log(sle)
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习2</title>
+    <script>
+        let grade = parseInt(+prompt("请输入小明的成绩"))
+        if(isNaN(grade)||grade < 0||grade > 100){
+            alert("你的输入有误")
+        }else{
+            if(grade===100 )
+            {
+                alert('奖励一台BMW')
+            }else if(grade>=80)
+            {alert('奖励一台iphone')
+            }else if(grade>=60){
+                alert('奖励了一本参考书')
+            }else{
+                alert('啥也没有')
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

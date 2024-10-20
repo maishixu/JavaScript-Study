@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <button id ="btn">刷新</button>
+    <form action="#">
+        <input type="text" name="username"/>
+    </form>
+    
+    <script>
+        /* 
+            location是浏览器地址栏的信息
+                -可以直接修改location，跳转页面
+                -location.href 获取地址
+                -location.protocal 协议https
+                -locatiion.host 主地址+端口号
+                -location.assign() 跳转地址 可回退
+                -location.replace() 跳转地址 无法回退
+                -location.reload() 刷新页面
+        */
+        const btn = document.getElementById("btn")
+        btn.onclick = function(){
+            location.reload(true)
+        }
+    </script>
+</body>
+</html>

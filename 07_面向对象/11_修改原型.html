@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改原型</title>
+    <script>
+        /* 
+            修改原型,少用!
+                不可通过类的实例去修改原型
+            方法:
+                可通过类去修改原型 类.prototype.想要修改的原型方法
+        */
+        class Person{
+            name = "Carl"
+            age = 18
+            SayHi(){
+                console.log('hi',this.name);
+            }
+        }
+        const p1 = new Person()
+        const p2 = new Person()
+        //通过对象修改原型
+        p1.__proto__.run = ()=> {
+            console.log("I am running")
+        }
+
+        //同一类型的实例都会改变
+        console.log(p1.run());
+        console.log(p2.run());
+
+        Person.prototype.fly = ()=>{
+            console.log("I am flying")
+        }
+        console.log(p1.fly());
+        console.log(p2.fly());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

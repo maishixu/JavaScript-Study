@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组</title>
+    <script>
+        /* 
+            数组（Array）
+                -复合数据类型，存储不同类型的属性
+                -有序的数据
+        */
+       const arr = new Array()
+       const arr1 = [] //创建数组
+
+       arr[0] = 10 //往数组中添加对象
+       arr[1] = 20
+       arr[9] = 100 //非连续数组 中间空属性×7
+       console.log(1);
+       console.log(arr[7]);
+       console.log(arr)
+       console.log(typeof arr) //Object
+       console.log(arr.length) //长度 【最大索引+1】
+       arr[arr.length] = 200 //像数组最后添加元素
+       arr.length = 5 //删除多余的元素
+       arr.length =12
+       console.log(arr)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

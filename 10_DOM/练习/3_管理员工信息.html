@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理员工信息</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .outer {
+            width: 500px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        .outer table {
+            width: auto;
+            border: 1px black solid;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        .outer th, td {
+            border: 1px black solid;
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            const btn = document.getElementById("btn");
+            const table = document.querySelector("table");
+            const tbody = table.querySelector("tbody");
+
+            // 删除员工信息
+            function deleteEmployee(link) {
+                const row = link.parentElement.parentElement;  // 获取当前行
+                const nameCell = row.cells[0];  // 获取姓名所在的单元格
+                const name = nameCell.textContent;  // 获取姓名
+                const flag = confirm(`确定要删除【${name}】的信息吗？`);
+                if (flag) {
+                    row.remove();  // 如果确认，删除该行
+                }
+            }
+            // 绑定删除功能
+            function bindDeleteLinks() {
+                const links = document.getElementsByTagName("a");
+                for (let link of links) {
+                    link.onclick = function() {
+                        deleteEmployee(link);
+                    }
+                }
+            }
+
+            // 初始绑定
+            bindDeleteLinks();
+
+            // 用户输入的信息要防止XSS攻击，用textContent
+            btn.onclick = function() {
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const salary = document.getElementById("salary").value;
+
+                // 输入验证
+                if (!name || !email || !salary) {
+                    alert("请填写所有字段！");
+                    return;
+                }
+
+                // 创建要添加的行
+                const tr = document.createElement("tr");
+                const nametd = document.createElement("td");
+                const emailtd = document.createElement("td");
+                const salarytd = document.createElement("td");
+
+                // 将用户输入的信息赋给添加的行列
+                nametd.textContent = name;
+                emailtd.textContent = email;
+                salarytd.textContent = salary;
+
+                // 将td添加给tr
+                tr.appendChild(nametd);
+                tr.appendChild(emailtd);
+                tr.appendChild(salarytd);
+                tr.insertAdjacentHTML("beforeend", '<td><a href="JavaScript:;">删除</a></td>');
+
+                // 将tr添加到表格中
+                tbody.appendChild(tr);
+
+                // 绑定新链接的删除函数
+                bindDeleteLinks();
+
+                // 清空输入框
+                document.getElementById("name").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("salary").value = "";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="outer">
+        <table>
+            <tbody>
+                <tr>
+                    <th>姓名</th>
+                    <th>邮件</th>
+                    <th>薪资</th>
+                    <th>操作</th>
+                </tr>
+                <tr>
+                    <td>Frank</td>
+                    <td>1980078@kl.com</td>
+                    <td>20000</td>
+                    <td><a href="JavaScript:;">删除</a></td>
+                </tr>
+                <tr>
+                    <td>Fiona</td>
+                    <td>991101Chi@.com</td>
+                    <td>18000</td>
+                    <td><a href="JavaScript:;">删除</a></td>
+                </tr>
+                <tr>
+                    <td>Shile</td>
+                    <td>3320Go@q.com</td>
+                    <td>14000</td>
+                    <td><a href="JavaScript:;">删除</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <form action="#">
+            <div>
+                <label for="name">姓名</label>
+                <input type="text" id="name"/>
+            </div>
+            <div>
+                <label for="email">邮件</label>
+                <input type="text" id="email"/>
+            </div>
+            <div>
+                <label for="salary">薪资</label>
+                <input type="text" id="salary"/>
+            </div>
+            <button id="btn" type="button">添加</button>
+        </form>
+    </div>
+</body>
+</html>

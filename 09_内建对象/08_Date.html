@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            Date
+                -表示时间
+                注：计算机底层存储时间时，用的都是时间戳
+                    时间戳：自1970.1.1.0.0.0到当前时间经历的毫秒
+        */
+       let d = new Date() //创建的是代码当前执行的时间
+       //可以在Date()中，传递表示时间的字符串
+       //格式 ： 月/日/年 时:分:秒
+       //d = new Date("10/20/2000 12:00:01") or (年，月，日，时，分，秒，毫秒)
+       console.log(d)
+
+       /* Date 对象方法 */
+       console.log(d.getFullYear()); //获取四位的年份
+       console.log(d.getMonth())//返回月份 0-11
+       console.log(d.getDate()) //返回几日
+       console.log(d.getDay())  //返回星期 0-6       
+       console.log(d.getTime());//返回日期对象的时间戳（自1970.1.1.0.0.0到当前时间经历的毫秒）
+
+       /* ----------- 日期格式化 ----------- */
+       let da = new Date()
+       /* 
+            toLocaleString() 
+            第一个参数是描述国家信息字符串
+                ·zh-CN 中文中国
+                ·zh-Hk 中文香港
+                ·en-US 英文美国
+            第二个参数是对象 
+                通过修改属性配置打印的风格
+                ·dateStyle 日期风格
+                ·timeStyle 时间风格  full long medium short
+                ·hour12 - true（false） 是否12小时制
+                ·weekday 日期显示格式
+       */
+       console.log(da.toLocaleDateString()) //转为本地日期
+       console.log(da.toLocaleTimeString()) //转为本地时间
+       console.log(da.toLocaleString("zh-CN",{dateStyle:"long",timeStyle:"short"})) //转为日期时间
+       
+       
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

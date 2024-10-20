@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式</title>
+    <script>
+        /* 
+            正则表达式
+                -正则表达式用来定义规则，判断字符串是否满足规则或者将字符串中满足条件的内容提取出来
+                -在JS中正则表达式也是一个对象
+                -RegExp()
+                    ·两个参数
+                        1.正则
+                        2.匹配模式
+                    -----------------------------
+                    [0-9] 任意数字
+                    [a-zA-Z] 任意字母
+                    [^x] 除了小写字母x ^除了在[]中才生效
+                    [^a-z] 包含除了小写字母外的字符串
+                    . 除了换行符
+                    \. 只匹配'.'
+                    \w 任意单词字符 字母数字下划线_
+                    \W 除了单词字符
+                    \d 任意数字
+                    \D 除了数字
+                    \s 空格
+                    \S 除了空格
+                    \b 单词边界
+                    \B 除了单词边界
+                    ------------------------------
+                    开头和结尾
+                        /^a/ 表示a在开头
+                        /a$/ 表示a在结尾
+                        /^abcdef$/ 检查字符串是否为'abcdef'
+        */
+        let reg = RegExp("ab") //构造函数创建正则表达式对象 -> 检查一个字符串中是否有"ab"
+        let reg1 = /a/i //字面量创建正则表达式对象
+        console.log(reg1);
+       
+        //检查字符串是否满足正则表达式
+        let str = "a"
+        console.log(reg.test(str));  //false
+        console.log(reg.test("abc"));//true
+       
+        //检查字符串中是否有ac或bk
+        let reg2 = /ac|bk/ 
+        console.log(reg.test("bc"));//false
+
+        //检查字符串中是否有某个字母 [字符集]
+        let reg3 = /[a-z]/ /* 表示小写的a到z（任意的小写字母） */
+        reg4 = /[A-Za-z]/ /* 任意字母 === /[a-z]/i  i表示忽略大小写 */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

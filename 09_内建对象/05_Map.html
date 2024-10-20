@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            Map
+                -Map用于存储键值对结构的数据（key-value）
+                -和Object的区别：
+                    ·Object的属性名只能是字符串或符号 
+                    ·Map的属性名可以是任何值
+        */
+       //创建一个Map
+        const map = new Map()
+        //向Map中添加属性
+        map.set("name","孙悟空") /* name是属性名，孙悟空是值 */
+        map.set(NaN,"沙和尚")
+        console.log(map)
+        //取数据
+        console.log(map.get(name))
+        //删除指定数据
+        map.delete(NaN)
+        //判断map中是否有某属性
+        console.log(map.has("name"))
+        //清空map
+        // map.clear
+
+        /* ------ Map和数组的转换------ */
+        //Map转成数组
+        const map1 = new Map
+        map1.set("name","sunwukong")
+        map1.set("age","19")
+        const arr = Array.from(map1) //转成一个二维数组 [[name...],[age...]]
+        console.log(arr)
+        //数组转为Map
+        const map2 = new Map([["日期",10],["天气","晴"],[{},500]])
+        console.log(map2);
+        //遍历Map
+        for(const entry of map2){
+            console.log(entry)
+        }
+        map2.forEach((key,value)=>{console.log(key,value)})
+        //map.key()键
+        //map.value()值
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

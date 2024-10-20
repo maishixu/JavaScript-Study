@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片轮播</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-family: 'Microsoft Yahei', Arial, sans-serif;
+        }
+        .image{
+            width: 450px;
+            background-color: pink;
+            margin: 50px auto;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .image img{
+            width: 100%;
+        }
+        p{
+            font-style: oblique;
+            color: darkblue;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            let image = document.getElementsByClassName("image")
+            let img = document.getElementById("img")
+            let prev = document.getElementById("prev")
+            let next = document.getElementById("next")
+            let text = document.getElementById("text")
+            const auto = document.getElementById("auto")
+            let ArrImg = [
+                "./images/love1.jpg",
+                "./images/love2.jpg",
+                "./images/love3.jpg",
+                "./images/love4.jpg",]
+            let current = 0
+            /* 
+                添加图片自动切换功能
+            */
+            let timer //定时器开关
+
+            auto.onclick = function(){
+                clearTimeout(timer)
+                timer = setTimeout(function nextauto(){
+                    if(current === ArrImg.length-1){
+                    current=0
+
+                    }else{
+                    current++
+                    }
+                    img.src=ArrImg[current]
+                    text.textContent=`当前是第${current+1}张照片,共有${ArrImg.length}张`
+                    timer=setTimeout(nextauto,3000)
+                },3000)
+            }
+            text.textContent=`当前是第${current+1}张照片,共有${ArrImg.length}张`
+            prev.onclick=function(){
+                //关闭定时器
+                clearTimeout(timer)
+                if (current ===0){
+                    current = ArrImg.length-1
+                }else{
+                    current--;
+                }
+                img.src=ArrImg[current]
+                text.textContent=`当前是第${current+1}张照片,共有${ArrImg.length}张`
+            }
+            next.onclick=function(){
+                //关闭定时器
+                clearTimeout(timer)
+                if(current === ArrImg.length-1){
+                    current=0
+
+                }else{
+                    current++
+                }
+                img.src=ArrImg[current]
+                text.textContent=`当前是第${current+1}张照片,共有${ArrImg.length}张`
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="image">
+        <p id="text">当前是第n张照片,共有m张</p>
+        <img src="./images/love1.jpg" id ="img" alt="love">
+        <button id="prev" type="button">上一张</button>
+        <button id="auto" type="button">自动</button>
+        <button id="next" type="button">下一张</button>
+    </div>
+
+
+</body>
+</html>

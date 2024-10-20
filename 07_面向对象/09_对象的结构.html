@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象的结构</title>
+    <script>
+        /* 
+            对象存储的区域实际上有两个:
+                1.对象自身的内存(地址)
+                    x = y
+                    类名.属性 = 值
+                2.原型对象(prototype)
+                    -在对象中的属性 __proto__ 指向原型对象
+                    位于原型对象中的情况:
+                        -xxx(){}
+                        -主动添加到原型对象
+                
+                原则:访问对象的属性时,会先寻找对象自身的内存地址(地址),若找不到,再找原型对象的内存(地址)
+        */
+        class Person{
+            name = "name"
+            age = 18
+            SayHi(){
+                console.log('hi',this.name);
+            }
+        }
+
+        const p1 = new Person
+        p1.SayHi = "hello"
+        console.log(p1);
+        console.log(p1.SayHi)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

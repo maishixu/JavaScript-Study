@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            使用fn.call() 和 fn.apply()来调用函数fn
+                call和apply可以指定函数的this
+                箭头函数无法通过call和apply指定this
+
+        */
+       function fn(a,b){
+            console.log("Hihello",this)
+            document.write(a,b)
+       }
+       const obj={
+        name : "Frank",
+        fn :fn
+       }
+       //参数可以指定this
+       fn.call(obj,10,20) //obj 后可以传不定数量的参数
+       fn.apply(window,[30,40])
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

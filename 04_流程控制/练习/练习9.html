@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>质数</title>
+    <script>
+        let flag=true
+        //开始一个计数器
+        console.time("质数练习")
+        for(let i=1;i<100;i++){
+            for(j=2;j<i;j++){
+                if(i%j===0){
+                    flag=false
+                    break
+                }   
+            }
+            if(flag===true){
+                document.write(`${i}`)
+                document.write('<br>')//输出最耗时间
+            }
+            flag=true
+        }
+        //停止计时器
+        console.timeEnd("质数练习")
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

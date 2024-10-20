@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this</title>
+    <script>
+        /* 
+            this
+                -函数的隐含参数,不用定义
+                -this指向一个对象,根据调用的方式不同而不同
+                    1.以函数形式调用时,this指向的是window
+                    2.以方法形式调用时,this指向的是调用方法的对象
+            作用:
+                在对象的内部调用对象的属性  (在方法中引用调用方法的对象)
+        */
+       const obj = {
+           name:"沙僧",
+           print:function(){
+               console.log(this.name)
+           }
+       }
+       //调用obj方法打印obj的name
+       obj.print()
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

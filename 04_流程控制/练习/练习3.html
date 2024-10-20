@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习3</title>
+    <script>
+        let manHeight = parseInt(+prompt("请输入男方的身高"))
+        let manValue =parseInt(+prompt('请输入男方的财产'))
+        let manFace =parseInt(+prompt('请输入男方的颜值'))
+        if(isNaN(manHeight)||manHeight < 0){
+            alert('你的输入有误')
+        }else if(isNaN(manValue)){
+            alert('你的输入有误')
+        }else if(isNaN(manFace)){
+            alert('你的输入有误')
+        }else{
+            if(manHeight >= 180 && manValue >= 1000 && manFace >=500){
+                alert('我一定要嫁给他')
+            }else if(manHeight >= 180 || manValue >= 1000 || manFace >=500){
+                alert('嫁吧，比上不足比下有余')
+            }else{
+                alert('不嫁！')
+            }
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

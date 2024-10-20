@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box1{
+            width: 50px;
+            height: 50px;
+            background-color: greenyellow;
+            border-radius: 50%;
+            position: absolute;
+        }
+        #box2{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(40, 65, 4);
+        }
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <script>
+        /* 
+            功能：使绿球和鼠标一起移动
+            
+            注意，事件的冒泡和位置无关，只和结构有关（父子，祖先）
+        */
+       const box1 = document.getElementById("box1")
+       const box2 = document.getElementById("box2")
+       document.addEventListener("mousemove",function(event){
+            box1.style.left = event.x+"px"
+            box1.style.top=event.y+"px"
+       })
+       box2.addEventListener("mousemove",function(event){
+            //小绿球进不去box2
+            event.stopPropagation()
+       })
+    </script>
+</body>
+</html>

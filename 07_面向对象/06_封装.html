@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>封装</title>
+    <script>
+        /* 
+        面向对象的三大特点:
+            1.封装
+            2.继承
+            3.多态
+        封装
+            -对象是用来存储不同属性的容器
+            -对象不仅负责存储属性,还要负责数据的安全
+
+            如何保护数据安全?
+                私有化数据 #
+                只能内部访问 外部直接访问不了
+            间接读取内部属性
+                -getter方法
+                -setter方法
+                
+            设置私有属性,内部方法访问 优点:
+                1.控制属性的读写权限
+                2.在方法中验证修改值
+        */
+       class Person{
+            #name //私有属性
+            #age
+            #gender
+            constructor(name ,age, gender){
+                this.#name = name
+                this.#age = age
+                this.#gender =gender
+            }
+
+            sayHi(){
+                console.log("hi,I am",this.#name)
+            }
+            //读取属性
+            get gender(){
+                return this.#gender
+            }
+            //修改属性
+            set age(age){
+                if(age >= 0){
+                    this.#age = age
+                }
+            }
+       }
+       const p1 = new Person("Frank" ,60, "男")
+       console.log(p1)
+
+       p1.sayHi() //内部可以访问
+       console.log(p1.name) //外部无法访问
+
+       //通过方法访问
+       console.log(p1.gender);
+       
+       //输入合法才能修改
+       p1.age = 20
+       console.log(p1);
+
+       p1.age = -10
+       console.log(p1)
+       
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

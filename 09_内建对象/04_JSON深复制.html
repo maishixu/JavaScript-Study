@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const obj = {
+            name:"sunwukong",
+            age:10,
+            friend :{name:"zhubajie"}
+        }
+        //对obj进行浅复制
+        const obj1 = Object.assign({},obj)
+        //对obj进行深复制
+        const str = JSON.stringify(obj)
+        const obj2 = JSON.parse(str)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

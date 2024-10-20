@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            早期用function创建类，
+                -function() 直接调用普通函数
+                -new function() 构造函数创建类
+        */
+       function Person(name,age){
+            //在构造函数中，this表示新建对象
+            this.name = name
+            this.age = age
+            this.SayHi = function(){} //在对象自身中添加
+       }
+       Person.prototype.sayhello=function(){} //在原型中添加
+       const p = new Person()
+       console.log(p);
+       
+
+    //    旧类的继承
+    var Animal = (function(){
+        function Animal(){
+
+        }
+        return Animal
+    })()
+    var Cat =(function(){ //立即执行函数
+        function Cat(){
+
+        }
+        Cat.prototype = new Animal() //继承Animal
+        return Cat
+    })()
+    var cat = new Cat() 
+    console.log(cat instanceof Animal);
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

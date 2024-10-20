@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window对象</title>
+    <script>
+        /* 
+            window对象
+                -浏览器提供的,可直接访问
+                -window对象代表浏览器的窗口,可以对它给浏览器进行各种操作
+                    还负责存储JS的内置对象和浏览器宿主对象
+                    String() Number()等 document.write()
+                -window对象的属性可以通过window对象方法来访问,也可以直接访问
+        */
+       //比如
+       //alert(123)
+       window.alert(123)//效果相等
+
+       //使用var的声明的变量,是window的属性保存
+       //当用let声明变量时,和window中变量名相同,首先访问let的变量
+       window.a = 1 //a成为全局变量 === var a
+
+       //使用function声明函数 作为window方法保存
+       function fn(){
+        console.log("我是fn")
+       }
+       window.fn()
+
+       function fn1(){
+        var b =10 //var虽然没块作用域,但有函数作用域d
+        d = 11 //若无let 和 var 自动成为全局变量
+       }
+       //console.log(b)//不可以访问
+       //console.log(d)//这种方式及其不好,所以要声明对象
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

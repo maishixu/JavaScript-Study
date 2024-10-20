@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            bind() 是函数的方法，会返回一个函数
+            和原函数的区别，可以绑定this
+                           可以为函数绑定参数
+        */
+       function fn(a,b,c){
+            console.log("fn执行了",this)
+            console.log(a,b,c)
+       }
+       const obj = {
+        name:"齐天大圣"
+       }
+       const newfn = fn.bind(obj,1) //绑定好了第一个参数
+       console.log(newfn(2,3))
+
+       
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

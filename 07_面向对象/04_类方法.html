@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类方法</title>
+    <script>
+        class Person{
+            name = "Mason"
+            //添加方法的方式1
+            sayHello = function(){
+                console.log('he')
+            }
+            //添加方法的方式2
+            sayHi(){
+                console.log('hi')
+                console.log('hi我是'+this.name)
+                //this就是当前实例
+            }
+            //静态方法
+            static test(){
+                console.log(this.name) //this指向当前类
+            }
+        }
+        const p1 = new Person()
+        p1.name = 'Frank'
+        p1.sayHello()
+        p1.sayHi()
+        Person.test()
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

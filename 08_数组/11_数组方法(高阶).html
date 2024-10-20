@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组方法</title>
+    <script>
+        /* 
+            sort() 按照Unicode编码排序 eg：10 排在 2前面
+                    -传递回调函数，指定排序规则
+                        console.log(arr.sort((a,b)=>a-b))//升序
+                        console.log(arr.sort((a,b)=>b-a))//降序
+            forEach() 遍历数组 需要回调函数做参数 回调函数返回值会成为新数组中的元素
+            filter()  过滤数组元素 需要回调函数做参数 回调函数返回值会成为新数组中的元素
+            map() 根据当前数组生成新数组 需要回调函数做参数 回调函数返回值会成为新数组中的元素
+            reduce() 将数组中所有元素整合为一个值 
+        */
+        let  arr= [1,23,2,3,12,6,9]
+        let per = ["sun","mason","lona","carl"]
+        let  arr1= [1,66,16,7,23,2,3,12,6,9]
+
+        console.log(arr.sort((a,b)=>a-b))//升序
+        console.log(arr.sort((a,b)=>b-a))//降序
+
+        
+        per.forEach(element =>console.log(element)) //遍历数组
+
+        let odd = arr1.filter(ele => ele % 2===0) //过滤偶数
+        console.log(odd)
+
+        let re = arr1.map(ele => ele*2) //每个元素二倍
+        console.log(re)
+        let tag = per.map(ele => "<li>"+ele+"</li>") //给每个元素加标签
+        console.log(tag)
+
+        let total = arr.reduce((a,b)=>a*b) //数组中元素相乘
+        console.log(total);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

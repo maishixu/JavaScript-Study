@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>立即执行函数</title>
+    <script>
+        /* 
+            开发中:减少在全局作用域中编写代码 尽量写到局部做用域中
+                防止被其他程序员修改
+            let声明的变量写到{块作用域}中
+            var声明的变量写到{函数作用域}中
+        */
+
+        //立即执行函数(IIFE) 匿名函数 且只会调用一次
+       (function(){
+        let a = 10
+        console.log(111)
+       }());
+       (function(){
+        let a = 20
+        console.log(222)
+       }());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

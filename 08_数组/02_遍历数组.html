@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            尽量确保一个数组中存储同类型数据
+        */
+       let arr = [1, 2, 3, 4]
+       //遍历数组
+       for(let i = 0;i<arr.length;i++){
+        console.log(arr[i]);
+       }
+
+       class Person{
+            constructor(name,age){
+                this.name = name
+                this.age = age
+            }
+       }
+       let arrp= [
+            new Person("Mason",10),
+            new Person("Ian",13),
+            new Person("Fiona",30),
+       ]
+       //打印未成年人信息
+       for(let i =0 ;i<arrp.length;i++){
+            if(arrp[i].age<18){
+            console.log(arrp[i])
+            }
+       }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

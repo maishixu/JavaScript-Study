@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="hi">1</h1>
+    <script>
+        //定时器（消息队列）
+        //参数(回调函数，间隔的时间) 单位是毫秒
+        const time = setTimeout(() => {
+            alert("执行了定时器中的代码")
+        }, 3000);
+        //关定时器
+        clearTimeout(time)
+        //间隔执行定时器
+        const Jtime = (()=>{
+            console.log("重复执行")
+        },3000)
+        //关间隔定时器
+        clearInterval(Jtime)
+        //例子
+        const h1 = document.getElementById("hi")
+        let num=1
+        const cal =setInterval(function(){
+            num++
+            h1.textContent=num
+            if(num==10){
+                clearInterval(cal)
+            }
+        },2000)
+        
+    </script>
+</body>
+</html>

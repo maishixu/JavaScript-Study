@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关系运算符</title>
+    <script>
+        /* 
+            检查两个值之间关系是否成立
+            成立返回true 不成立返回false
+            >
+            >=
+            <
+            <=
+        */
+       let result = 5 < "10"  //true 自动类型转换 "10" 变 10
+       result = "a" < "b" //true 两端都是字符串 比较Unicode编码
+       result = "abc" < "b" //true 逐位比较 第一位b已经赢了
+       result = "12" < "2" //true 比较第一个字符串
+       result = +"12" < "2"//false 转化为数值再比较 
+       console.log(result)
+       //检查 num 是否再5 - 10之间
+       let num = 9
+    //    result = 5<num<10 错误写法 前面部分是 1 or 0 然后和10比较 恒为true
+       result = 5<num && 10>num
+       console.log(result)
+       
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

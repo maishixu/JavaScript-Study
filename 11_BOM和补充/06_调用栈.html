@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            执行函数时，产生一个执行环境，放在调用堆栈中，函数有关的数据都在这个执行环境中
+            后进先出
+            函数执行后，在栈顶插入一个栈帧，当函数执行完后，栈帧会从栈中删除
+        */
+        function fn(){
+            a =10
+            b =20
+        }
+        fn()
+    </script>
+</body>
+</html>

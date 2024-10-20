@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+        #box2{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(146, 216, 102);
+        }
+        #box3{
+            width: 50px;
+            height: 50px;
+            background-color: rgb(190, 152, 193);
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div id="box1">
+        <div id="box2">
+            <div id="box3"></div>
+        </div>
+    </div>
+    <script>
+        /* 
+            事件捕获：
+                当前元素触发事件以后，从最大的祖先开始向子孙开始进行捕获，
+                捕获到触发的对象为止，然后从内向外冒泡
+            默认情况下，捕获阶段不会触发事件
+            如果希望捕获阶段触发，将addEventListener第三个参数设置为true
+        */
+       const box1 = document.getElementById("box1")
+       const box2 = document.getElementById("box2")
+       const box3 = document.getElementById("box3")
+       box1.addEventListener("click",event=>{
+            event.eventPhase() //1:事件捕获触发的 2目标触发的 3事件冒泡触发的
+            alert("1")
+       },true)
+       box2.addEventListener("click",event=>{
+            alert("2")
+       },true)
+       box3.addEventListener("click",event=>{
+            alert("3")
+       },true)
+    </script>
+</body>
+</html>

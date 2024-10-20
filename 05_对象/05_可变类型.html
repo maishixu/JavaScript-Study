@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可变类型</title>
+    <script>
+        /* 
+        原始值都是不可变类型,相同的值指向的都是同一个地址
+        对象属于可变类型
+            obj.属性 可变
+            可以任意添加修改删除某个对象中的属性
+            注:如果两个变量指向同一个对象,修改其中一个变量,另外一个变量也会被修改
+        */
+
+       let obj1=Object()
+       let obj2=obj1 //指向的内存相同
+
+       //修改其中一个变量,另外一个变量也会被修改
+       obj1.name = "孙悟空"
+       obj2.age = 19
+       console.log(obj1===obj2)
+       console.log(obj1)
+       console.log(obj2)
+
+       let a = 10
+       let b = a //指向的是10这个内存
+       a = 12 //指向12这个内存
+       console.log(a)
+       console.log(b)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

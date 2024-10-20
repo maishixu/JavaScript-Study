@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类属性</title>
+    <script>
+        /* 
+            类的代码块是严格模式
+                -用于设置对象的属性
+        */
+       class Person{
+            name = "Mason"//Person的实例属性 实例属性只能通过实例访问
+            age = "20"
+
+            static prop = "test" //静态属性 只能通过类去访问
+       }
+       const p1 = new Person() //调用构造函数添加对象 p1是Person的实例
+       console.log(p1);
+
+       console.log(Person.prop)
+       console.log(p1.prop)  //无法访问
+       
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            对象中存储的是原始值（原始值不可变），则深浅拷贝不重要
+            深拷贝和原来数组的关系<浅拷贝和原来数组的关系
+            浅拷贝：不复制对象中的属性，复制对象本身  
+            深拷贝：复制对象中的属性，也复制对象本身
+        */
+       //浅拷贝
+       // arr ！== arr1  but  arr[i] = arr1[i] 
+        const arr = [{name:"Fiono" ,age:30},{name:"Mandy",age:40},{name:"Shile",age:50}]
+        const arr1 = arr.slice()
+        // arr1[1] = { name:"Ian",age:25} //arr不会改变
+        // console.log(arr,arr1)
+
+        // arr1[0].age =100 //arr[0].age 会改变 因为不复制属性
+        const arr2 = structuredClone(arr) 
+        arr2[1] = { name:"Ian",age:25} //arr不会改变
+        arr2[0].age =100 //arr[0].age 不会改变 深拷贝复制属性
+        console.log(arr,arr2)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

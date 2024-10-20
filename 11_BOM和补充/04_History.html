@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id ="btn">刷新</button>
+    <script>
+        /* 
+            back 回退
+            forward 往前
+            go(2) 往前两次
+        */
+        const btn = document.getElementById("btn")
+        btn.onclick = function(){
+            console.log(history.length);//
+            
+        }
+    </script>
+</body>
+</html>

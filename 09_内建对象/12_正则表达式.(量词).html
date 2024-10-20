@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>量词</title>
+    <script>
+        /* 
+            量词
+                a{3} 连续三个a
+                (ab){3} 连续三个'ab'
+                ^[a-z]{3}$ 三个不重复字母
+                ^[a-z]{2,}$ 2个以上不重复字母
+                /^ba+$/ b和一个以上的a
+                ？： 0-1个
+        */
+        let re = /a{3}/
+        console.log(re.test("aaa"));
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

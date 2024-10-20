@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 通过DOM元素获取样式 -->
+    <style>
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <hr>
+    <div class="box1"></div>
+    <script>
+        //获取按钮
+        const btn = document.getElementById("btn")
+        //获取盒子
+        const box1 = document.querySelector(".box1")
+        btn.onclick=function(){
+            //读取当前生效的样式
+            //getComputedStyle() 获取元素样式的函数
+            //参数 1.要获取的对象 2.要获取的伪元素
+            //当通过DOM对对象方法去获取样式时，值可能无法计算（eg。auto）
+            const styleObj = getComputedStyle(box1)
+            box1.style.width = parseInt(styleObj.width)+100+"px" //必须加上单位才可以修改样式
+            console.log(styleObj.width)
+            console.log(styleObj.width)
+            console.log(styleObj.backgroundColor)
+            console.log(styleObj.color)
+        }
+    </script>
+</body>
+</html>

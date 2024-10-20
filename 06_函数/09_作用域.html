@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作用域</title>
+    <script>
+        /* 
+            作用域(scope)
+                -指的一个变量的可见区域
+            全局作用域
+                -在网页运行时创建,在网页关闭时销毁
+                -直接编写到script标签中的代码都位于全局作用域
+                -全局作用域中的变量可以在任意位置访问
+            局部作用域
+                -块作用域
+                    -在代码块执行时创建,在代码块执行完毕时销毁
+                    -在块作用域中声明的变量只能在声明的块中访问
+        */
+       let a = 10
+       {
+        let b = 20
+       }
+       //console.log(b) 不能访问b
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

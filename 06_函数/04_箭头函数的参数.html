@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            箭头函数当且仅当只有一个参数时,括号可以省略不写
+        */
+        const fn = a=>{
+            console.log(a)
+        }
+        fn(a)
+        //定义参数时,可以为参数指定默认值
+        const fn2 = (a=10 , b=20 ,c=30) =>{
+            console.log(a)
+            console.log(b)
+            console.log(c)
+        }
+        fn(1,2)//当没有对应参数时生效
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

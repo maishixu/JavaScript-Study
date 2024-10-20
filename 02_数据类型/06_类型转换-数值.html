@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类型转换</title>
+    <script>
+        /* 
+        将其他数据类型转换为数值
+        Number()函数
+            -字符串，是合法的数字串，能转成数值，如果不是合法的数字串，转化为NaN
+            -如果是空串，转为number：0
+            -布尔值，true转为1，false转为0
+            -null转为0
+            -undefined转为NaN
+        专门用于字符串转数值的方法
+        1.parseInt   转整数 自左向右读取，直到读取到第一个不合法的数字，结束读取 也可用来取整
+        2.parseFloat 转浮点数
+        */
+        let a='123'
+        a='hello'
+        a=undefined
+        a=' '
+        console.log(typeof a,a)
+
+        a=Number(a)
+        console.log(typeof a,a)
+        /* --------专门转换-------- */
+        let b='123px'
+        b=123.45
+        console.log(typeof b,b)
+        b=parseInt(b)
+        console.log(typeof b,b)
+        let c='123.3ee4uu'
+        c=parseFloat(c)
+        console.log(typeof c,c)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

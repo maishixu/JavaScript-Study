@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            网页是自上向下加载，JS代码执行时，网页没有加载完毕，这时会无法获取DOM对象的情况
+            解决方法：
+                1.将script标签编写到body的最后（****）
+                2.将代码编写到windows.onload函数中 -- 窗口的内容加载完毕才会触发
+                3.（性能更好）将代码编写到document对象的DOMContentLoaded回调函数中 --当前文档加载完毕就会触发
+                4.将代码写到外部的js文件中，然后以defer形式引入（***）
+        */
+       window.onload = function() {
+            //代码...
+       }
+       document.addEventListener("DOMContentLoaded",function(){
+            //代码...
+       })
+       
+    </script>
+    <script defer src="路径/..."></script>
+</head>
+<body>
+    
+</body>
+</html>

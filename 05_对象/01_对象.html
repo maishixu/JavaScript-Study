@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象</title>
+    <script>
+        /*
+        数据类型
+            -原始值 --- 只能表示一些简单的数据,不能表示复杂的数据
+                1.数值Number
+                2.大整数BigInt
+                3.字符串String
+                4.布尔值Boolean
+                5.空值Null
+                6.未定义Undefined
+                7.符号Symbol
+            -对象 --- JS中的复合数据类型,相当于一个容器,可以存储各种不同类型的数据
+                比如:需要在程序中存储一个人的信息
+
+        */
+       // 创建对象
+       // let obj = new Object()
+       let obj = Object()
+       //向对象中添加属性
+       obj.name = "孙悟空"
+       obj.age= 18
+       obj.gender = "男"
+       //读取对象中的属性
+       console.log(obj.name)
+       //修改属性
+       obj.name = "Tom sun"
+       //删除属性
+       delete obj.age
+       //读取对象
+       console.log(obj)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

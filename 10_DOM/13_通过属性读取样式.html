@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        小技巧，给标签设置id时，在script中可以直接用对象id
+    -->
+    <style>
+        .box1{
+            position: relative;
+            padding: 50px;
+            margin: 50px;
+            width: 100px;
+            height: 100px;
+            border:1px solid pink;
+            background-color: aqua;
+            color: red;
+            overflow:auto;/*自动生成滚动条*/
+        }
+        .box2{
+            width: 100px;
+            height: 500px;
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <hr>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+    <script>
+        //获取按钮
+        const btn = document.getElementById("btn")
+        //获取盒子
+        const box1 = document.querySelector(".box1")
+        const box2 = document.querySelector(".box2")
+        btn.onclick=function(){
+            /* 只读 */
+            //获取元素的内部的宽高（内容区+内边距）
+            console.log(box1.clientHeight);
+            console.log(box1.clientWidth);
+            //获取元素的可见框的大小（内容区+内边距+边框）
+            console.log(box1.offsetWidth);
+            console.log(box1.offsetHeight);
+            //获取元素滚动区域的大小
+            console.log(box1.scrollWidth);
+            console.log(box1.scrollHeight);
+            //获取元素的定位父元素-离元素最近的开启了定位的父元素
+            console.log(box2.offsetParent);
+            //获取元素相对于定位父元素的相对距离
+            console.log(box2.offsetLeft);
+            console.log(box2.offsetTop);
+            
+            /* 以上的获取样式可以直接计算 */
+            console.log(box2.offsetTop+100);
+            
+            //获取或设置元素滚动条的偏移量
+             console.log(box1.scrollTop);
+
+        }
+    </script>
+</body>
+</html>

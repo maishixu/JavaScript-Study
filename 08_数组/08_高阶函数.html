@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            高阶函数
+                -指一个函数的参数or返回值是函数
+                -函数作为参数：回调函数
+                    ·可以对一个函数动态传递代码
+                -函数作为返回值
+                    ·动态生成新函数，对原函数包装新功能
+        */
+        //函数作为参数
+        function filter(arr,cb){
+            const newArr = []
+            for(let i =0;i<arr.length;i++){
+                if(cb(arr[i])){
+                    newArr.push(arr[i])
+                }
+            }
+            return newArr;
+        }
+        const arr = [1,2,3,4,5,6,7,8,9,10]
+        let result = filter(arr, a=>a%2===0)
+        console.log(result);
+
+        //函数作为返回值
+        function SomeFn(){
+            return "hello"
+        }
+        function outer(cb){ //包装函数，给某函数添加打印日志的功能
+            return ()=>{
+                console.log("打印记录日志");
+                const result = cb()
+                return result
+            }
+        }
+        const newSomeFn = outer(SomeFn) //newSomeFn增加了打印日志的功能
+        console.log(newSomeFn())
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

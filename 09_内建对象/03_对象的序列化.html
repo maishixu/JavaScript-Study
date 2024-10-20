@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象序列化</title>
+    <script>
+        /* 
+            对象序列化
+                -JS中的对象都是存在内存中
+                -序列化是值将对象转换为一个可以存储的格式
+                -序列化：把对象转化为字符串（JSON字符串）
+                    作用：
+                        ·转化为JSON字符串后，能在不同语言中传递
+                        ·可以将JSON字符串发给服务器，数据库，他们都能读懂
+                        ·编写配置文件
+                    如何进行序列化：
+                        ·JSON工具类
+                    手动编写JSON注意事项
+                        ·只有两种形式
+                            1.{对象}
+                            2.{数组}
+                        ·属性名：必须用双引号，因为在其他语言里单引号不一定表示字符串
+                        ·可以的属性值（元素）
+                            1.使用数字（不加引号），
+                            2.字符串 （必须加引号）
+                            3.布尔值
+                            4.空指
+                            5.对象{}
+                            6.数组[]
+                        ·JSON的格式和JS对象格式差不多，但是JSON更严格，为了传输数据的速度（解析速度，不用考虑那么多）
+
+        */
+       const obj ={
+            name:"sunwu",
+            age :20
+       }
+       const str = JSON.stringify(obj)
+       console.log(obj)
+       console.log(str)
+
+       const obj2 = JSON.parse(str) //把JSON转化为对象，但和原来的obj不是同一个对象，深复制
+       console.log(obj2); 
+       //手动编写JSON
+       const str2 = '{"name":"sunwu","age":20}'
+       console.log(str2)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造方法</title>
+    <script>
+        class Person{
+            name
+            age
+            gender
+            //在类中添加一个特殊的构造函数-在调用类创建对象时执行
+            //在构造函数为实例属性赋值
+            constructor (name,age,gender){
+                this.name = name //this表示当前创建的对象
+                this.age = age
+                this.gender = gender
+            }
+        }
+        const p1 = new Person('Mason', 20, 'male')
+        console.log(p1)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

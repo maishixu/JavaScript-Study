@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>递归</title>
+    <script>
+        /* 
+        递归：调用自身函数
+             -作用和循环基本一致
+             -[递归性能低，简洁；循环性能高，复杂]
+        基本思想，将问题拆分为一个个小问题
+        递归函数的要点：
+            ·基线条件 - 终止条件
+            ·递归条件 - 如何对问题进行拆分
+        */
+        function JieCheng (num){
+            //基线条件
+            if (num === 1){
+                return 1
+            }
+            //递归条件
+            return JieCheng(num-1)*num
+        }
+        console.log(JieCheng(5))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

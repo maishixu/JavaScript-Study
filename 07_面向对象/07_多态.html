@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多态</title>
+    <script>
+        /* 
+            多态:
+                在JS中不会检查参数的类型,所以任何数据都可以作为参数传递
+                !不关心对象的类型,只关心对象参数是否满足某些条件
+                优点:
+                    提供灵活性
+        */
+       class Dog{
+            constructor(name){
+                this.name = name
+            }
+       }
+       const dog = new Dog("旺财")
+       function HiPerson(obj){
+            console.log("hi",obj.name)
+       }
+       HiPerson(dog)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

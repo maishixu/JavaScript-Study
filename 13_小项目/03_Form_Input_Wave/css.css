@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    display: flex;
+    /* 使内容垂直居中 */
+    justify-content: center;
+    align-items: center;
+    background-color: steelblue;
+    color: white;
+    font-family: sans-serif;
+}
+.container{
+    background-color: rgba(0,0,0,.4);
+    padding: 20px 40px;
+    border-radius: 5px;
+}
+
+.form-control{
+    position: relative;
+    width: 300px;
+    margin: 20px 0 40px;
+}
+.form-control input{
+    width: 100%;
+    padding: 15px 0;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px white solid;
+    color: white;
+    font-size: 18px;
+}
+.form-control input:focus{
+    outline: 0;
+    border-bottom-color:lightblue ;
+}
+/* 只要有文本就显示 */
+.form-control input:valid{
+    border-bottom-color:lightblue ;
+}
+.form-control label{
+    position: absolute;
+    left: 0;
+    top:15px;
+    
+}
+.btn{
+    cursor: pointer;
+    width: 100%;
+    padding: 15px;
+    background-color: lightblue;
+    font-family: inherit;
+    font-size: 16px;
+    border:none;
+    margin-bottom: 30px;
+}
+.btn:focus{
+    outline:0;
+}
+.btn:active{
+    transform: scale(0.98);
+}
+.text a{
+    text-decoration: none;
+    color: lightblue;
+}
+label span{
+    display: inline-block;
+    font-size: 18px;
+    transition: all 0.3s cubic-bezier(0.68,-0.55,0.265,1.55) ;
+}
+.form-control input:focus + label span,
+.form-control input:valid + label span
+{
+    transform: translateY(-30px);
+    color: lightblue;
+}

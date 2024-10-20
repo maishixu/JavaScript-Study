@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            除了赋原始值给变量创建对象，也可new方法创建变量对象
+
+            比如：可以通过 let str = new string()创建字符串类型的对象
+                 ！！但是：不要这么做
+
+            包装类：
+                -一共有五个包装类
+                String() -> 将原始值字符串包装成字符串对象
+                Number()
+                Boolean()
+                BigInt()
+                Symbol()
+        */
+       let str = "hi"
+       let str1 = new String("hello")
+       let str2 = new String("hello")
+       let str3 = "hi"
+       console.log(str1==str2) //false
+       console.log(str==str3) //true
+
+       /* ----包装类----- */
+       let stri = "mystr"
+       stri.name = "名字"//但打印不出来
+
+       let num = 10
+       num = num.toString() //作用在此凸显出来，num是一个原始值，怎么可以调用方法呢，原因就是把num变成了一个整数对象
+
+       console.log(typeof(num),num)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

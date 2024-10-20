@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        无参箭头函数 ()=> return 111
+        正常箭头函数 (a,b,c)=>{
+            多行语句...
+            return 返回值
+        }
+        箭头函数的this和调用方式无关,总是由外层的this决定,比较稳定
+        */
+       function fn1(){
+            console.log(this);
+            
+       }
+       const fn2=()=>{
+            console.log(this);
+            
+       }
+    //以方法函数调用this都是window
+        fn1()//window
+        fn2()//window
+    const obj={
+        name : "Mason",
+        fn1 : fn1,
+        fn2 : fn2,
+        sayHi:function(){
+            console.log("sayHi-->",this); //obj
+            //进阶
+            function t(){
+                console.log("t-->",this)
+            }
+            t() //以函数调用 this是window
+            const j =()=>{
+                console.log("j-->",this)
+            }
+            j() //箭头函数this永远由外层this决定 obj
+        }
+    }
+    //通过方法调用this
+    obj.fn1() //obj
+    obj.fn2() //还是window 因为fn2在全局作用域中定义的,所以永远都是window
+    obj.sayHi()//this是obj
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

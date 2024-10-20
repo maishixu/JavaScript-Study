@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn01">点我一下</button>
+    <ul id ="list1">
+        <li id="l1">孙悟空</li>
+        <li id="l2">沙和尚</li>
+        <li id="l3">猪八戒</li>
+    </ul>
+    <ul id="list2">
+        <li>蜘蛛精</li>
+    </ul>
+    <script>
+        const btn01 = document.getElementById("btn01")
+        const l1 = document.getElementById("l1")
+        const list2 = document.getElementById("list2")
+        btn01.onclick = function(){
+            //对节点进行复制，但id不改变，这个方法只会复制当前节点，不复制子节点
+            //true参数，即复制当前结点，也复制子节点
+            const newl1 = l1.cloneNode(true)
+            newl1.id= "newl1"
+            //向list2中添加子节点
+            list2.appendChild(newl1)
+        }
+    </script>
+</body>
+</html>

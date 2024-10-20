@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>兔子</title>
+    <script>
+        /* 
+        一对兔子出生的两个月后每个月能生一对兔子
+            -编写函数计算n个月的兔子数量
+
+            --求斐波那契数列第n个数
+            第n个数=第n-1个数+第n-2个数
+        */
+       function fn(month){
+            if (month === 1 ||month === 2){
+                return 1
+            }
+            return fn(month-1)+fn(month-2)
+       }
+       console.log(fn(9));
+       
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类</title>
+    <script>
+        /* 
+            使用Object创建对象的问题:
+                1.问题 无法区分不同类型的对象
+                2.不方便批量创建对象
+            类:
+                -类是对象模板,可以将对象的属性和方法直接定义在类中
+        */
+       class Person{  //人对象模板
+
+       }
+       class Dog{     //狗对象模板
+
+       }
+       const p1 = new Person() //通过类添加对象
+       const p2 = new Person() //通过类添加对象
+       console.log(p1)
+       console.log(p1 instanceof Person) //true 检查p1是否由Person类创建
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

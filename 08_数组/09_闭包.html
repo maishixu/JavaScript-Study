@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包简介</title>
+    <script>
+        /* 
+        闭包：能访问到外部函数作用域中的函数
+            使用场景：隐藏不希望别人访问的变量时
+            构成条件：
+                ·函数的嵌套
+                ·内部函数要引用外部函数的变量
+                ·内部函数作为外部函数的返回值
+        */
+        function outer(){
+            let num = 0 //函数作用域
+            return ()=>{ //返回内部函数
+                num++
+                console.log(num)
+            }
+        }
+        let newFn = outer()
+        let newFn1 = outer()
+        console.log(newFn)
+        /* 
+        ------------------------------------------------------------------
+        闭包原理  - （JS中的宿命作用域）
+        函数作用域在创建时就已经确定，和调用的位置无关！
+        
+        闭包的生命周期
+            ·外部函数被调用时产生闭包，外部函数每次调用都会产生一个全新的闭包
+            ·闭包之间互相独立
+            ·内部函数丢失时销毁 let newFn = null
+        
+        闭包注意事项
+            ·相较类，闭包更浪费内存空间（闭包不能使用原型）
+            ·执行次数少时，用闭包；需要创建大量实例时，用类
+        */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

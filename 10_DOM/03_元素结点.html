@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span class="s">一个span</span>
+    <span class="s">一个span</span>
+    <span class="s">一个span</span>
+    <span class="s">一个span</span>
+    <div>一个div</div>
+    <div>一个div</div>
+    <div>一个div</div>
+    <div>一个div</div>
+    <input type="radio" name="gender" value="男">男
+    <input type="radio" name="gender" value="女">女
+    <script>
+        /* 
+            元素节点对象：
+                -在网页中，每个标签都是一个元素节点
+                -如何获取元素节点对象？
+
+                    1.通过document对象获取
+                        ·document.getElementsById() 通过id获取一个元素节点对象
+                        ·document.getElementsByClassName() 通过class获取一组元素节点对象
+                        ·document.getElementsByTagName() 通过标签名获取一组元素节点对象 （*）所有元素
+                        ·document.getElementsName() 通过name属性获取一组元素节点对象 用于表单项
+               （！重要）·document.querySelectorAll() 通过选择器属性获取一组元素节点对象 返回的不是动态数组
+               （！重要）·document.querySelector() 通过选择器属性获取第一个符合条件的元素节点对象 
+
+                    2.通过document对象创建
+                        ·document.createElement() 根据标签名创建对象
+        */
+       const spans = document.getElementsByClassName("s") //返回的是类数组 是动态的类数组
+       const divs = document.getElementsByTagName("div") //返回的是类数组 是动态的类数组
+       const names = document.getElementsByName("gender") //返回的是类数组 是动态的类数组
+       /* for(let i of spans){
+            console.log(i)
+       } */
+       console.log(divs);
+       console.log(spans);
+       console.log(names);
+       console.log(spans.length);
+       console.log();
+       
+
+    </script>
+</body>
+</html>

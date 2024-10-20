@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        大量修改样式时，通过添加class修改样式，这么做可以使css和JavaScript解耦
+    -->
+    <style>
+        .box1{
+            position: relative;
+            padding: 50px;
+            margin: 50px;
+            width: 100px;
+            height: 100px;
+            border:2px solid black;
+            background-color: aqua;
+            color: red;
+            overflow:auto;/*自动生成滚动条*/
+        }
+        .box2{
+            width: 50px;
+            height: 50px;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <hr>
+    <div class="box1">
+    </div>
+    <script>
+        //获取按钮
+        const btn = document.getElementById("btn")
+        //获取盒子
+        const box1 = document.querySelector(".box1")
+        btn.onclick=function(){
+            //给box1加上一个类名box2
+            //box1.className += " box2"/* 注意前面有一个空格 */
+            //元素.classList是操作类class的对象，有多种方法
+            /* 添加一个或多个class */
+           // box1.classList.add("box2","box3")
+            /* 移除class */
+            //box1.classList.remove("box2")
+            /* 切换class 有则删 无则加 */
+            //box1.classList.toggle("box2")
+            //替换class （旧，新）
+            //box1.classList.replace("box1","box2")
+            //j检查是否含某个classs
+            console.log(box1.classList.contains("box1"))
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            re.exec(str) 
+                -获取str中满足正则表达式re的字符串
+        */
+        let str = "abcafcarcakcalc"
+        let re = /a([a-z])c/ig //i：忽略大小写，g：全局匹配
+        let result = re.exec(str)
+        while(result){
+            console.log(result[0],result[1]);
+            result = re.exec(str)
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

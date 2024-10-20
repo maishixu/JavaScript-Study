@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数参数</title>
+    <script>
+        /* 
+            定义函数时,可以在函数括号中指定数量不等的形式参数--相当于在函数内部声明相应的变量但没有赋值
+            实际参数,在调用函数时,可以传递数量不等的实际参数
+            参数
+                -1.实参和形参数量相等,则一一对应
+                -2.实参>形参,多余的实参不会使用
+                -3.实参<形参,多余的形参undefined
+            参数类型
+                不会检查参数类型
+        */
+        function sum(a,b){
+            console.log(a+b)
+        }
+        sum(8,10)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

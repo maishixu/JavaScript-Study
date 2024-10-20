@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            border:10px solid greenyellow
+        }
+        #box2{
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <div id="box2"></div>
+    </div>
+    <a href="https://www.baidu.com/s?ie=UTF-8&tn=02003390_42_hao_pg&wd=baidu" id="baidu">百度</a>
+    <script>
+        /* 
+            event事件
+                -事件对象
+                    ·浏览器在事件触发时创建的对象，封装了事件的各种信息
+                    ·事件对象会做回调函数的参数传递
+                -事件冒泡（bubble）
+                    ·指的是向上传递，某元素的事件触发后，其父元素的相同事件也会依次被触发
+                    ·作用：简化代码的编写
+                    ·如何取消冒泡？事件对象even.stopPropagation()。
+        */
+       const box1 = document.getElementById("box1")
+       const box2 = document.getElementById("box2")
+       const link = document.getElementById("baidu")
+        //鼠标移动事件
+        box1.onmousemove = function(event){
+            //console.log("鼠标动了");
+            //console.log(event.clientX,event.clientY);
+            //box1.textContent=event.clientX+","+event.clientY
+        }
+        //鼠标单击事件
+        box1.addEventListener("click",function(event){
+            //触发事件的对象
+            console.log(event.target); //事件触发的对象改变而改变
+            //绑定事件的对象
+            console.log(event.currentTarget);//]永远都是box1
+            console.log(this); //事件触发的对象改变this不改变
+            //alert("我是box1")
+        })
+        box2.addEventListener("click",event=>{
+            //取消事件传导(冒泡)
+            //event.stopPropagation()
+            //alert("我是box2")
+        })
+        link.addEventListener("click",event=>{
+            event.preventDefault()//取消对象的默认行为
+            alert("这是不会跳转的连接")
+        })
+    </script>
+</body>
+</html>

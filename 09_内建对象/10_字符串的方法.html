@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串方法</title>
+    <script>
+        /* 
+            字符串
+                -字符串本质就是字符数组
+            字符串方法:
+                ·str.length()
+
+        */
+        let str = "JavaScript"
+        let str1 = "html/css"
+        let str2 = "100"
+        let str3 = "Cal@man@FraK@fiona"
+        let str4 = "      sun shine bright        "
+        /* -- 字符串方法 -- */
+        let re = str.length //获取长度 read-only 不是破坏性的
+
+        //遍历字符串
+        for(let va of str){
+            //console.log(va)
+        }
+
+        re = str.at(2) //获取索引为2的字符
+
+        str.concat(str1) //连接两个字符串
+
+        //console.log(str.includes("Sc",3)) //检查字符串中是否包含某内容 第二个参数是查询起始位置
+
+        //str.indexOf("xx") 查询某内容出现的第一个索引
+
+        console.log(str.endsWith("lk")); //检查是否以xx结束 类似的还有startWith()
+
+        console.log(str2.padStart(7,"0")) //总共七位，不够在前面补齐指定内容 类似的padEnd()
+
+        //console.log(str.replace("Java","Type")) //使用新字符串替换指定内容
+
+        console.log(str.slice(3,6)) //截取字符串 同subString() 更智能，会自动交换位置
+
+        console.log(str3.split("@")) //根据传的值来拆元素 join()连接字符串
+
+        console.log(str.toUpperCase()) //转大写 toLowerCase()转小写
+        
+        console.log(str4.trim()) //去除空格  trimStart() trimEnd() 去除开始/结束空格 
+    </script>
+</head>
+<body>
+    
+</body>
+</html> 

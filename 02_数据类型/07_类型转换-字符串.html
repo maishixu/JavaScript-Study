@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类型转换</title>
+    <script>
+        /* 
+        只有0和null undefined 空串 转为false
+        所有表示空性的 没有的 错误的值都是false
+        */
+        let a=1
+        a=100
+        a=-1
+        a=0
+        a=null
+        a=Infinity
+        console.log(typeof a,a)
+        a=Boolean(a)
+        console.log(typeof a,a)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
